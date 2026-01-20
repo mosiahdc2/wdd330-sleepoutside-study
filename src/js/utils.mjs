@@ -38,3 +38,21 @@ export function renderListWithTemplate(template, parentElement, list, position =
   }
   parentElement.insertAdjacentHTML(position, htmlStrings.join(""));
 }
+
+export function updateCartCount() {
+  const cartItems = getLocalStorage("so-cart") || [];
+  const cartCountElement = document.getElementById("cart-count");
+
+  if (cartCountElement) {
+    const itemCount = cartItems.length;
+    cartCountElement.textContent = itemCount;
+
+    if (itemCount === 0) {
+      cartCountElement.classList.add("hidden");
+    } else {
+      cartCountElement.classList.remove("hidden");
+    }
+
+    //cartCountElement.textContent = cartItems.length;
+  }
+}
