@@ -48,9 +48,11 @@ export function updateCartCount() {
     cartCountElement.textContent = itemCount;
 
     if (itemCount === 0) {
-      cartCountElement.classList.add("hidden");
+      console.log("Hiding badge");
+      cartCountElement.style.display = "none";
     } else {
-      cartCountElement.classList.remove("hidden");
+      console.log("Showing badge");
+      cartCountElement.style.display = "flex";
     }
 
     //cartCountElement.textContent = cartItems.length;
